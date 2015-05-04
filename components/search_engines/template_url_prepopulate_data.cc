@@ -56,6 +56,7 @@ struct EngineAndTier {
 
 // Default (for countries with no better engine set)
 constexpr EngineAndTier engines_default[] = {
+    {SearchEngineTier::kTopEngines, &qwant},
     {SearchEngineTier::kTopEngines, &duckduckgo},
     {SearchEngineTier::kTopEngines, &google},
     {SearchEngineTier::kTopEngines, &bing},
@@ -1780,7 +1781,7 @@ std::vector<std::unique_ptr<TemplateURLData>> GetPrepopulatedEngines(
   }
   if (default_search_provider_index) {
     const auto itr =
-        base::ranges::find(t_urls, duckduckgo.id, &TemplateURLData::prepopulate_id);
+        base::ranges::find(t_urls, qwant.id, &TemplateURLData::prepopulate_id);
     *default_search_provider_index =
         itr == t_urls.end() ? 0 : std::distance(t_urls.begin(), itr);
   }
