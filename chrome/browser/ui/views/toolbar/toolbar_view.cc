@@ -470,7 +470,7 @@ void ToolbarView::Init() {
 #elif BUILDFLAG(IS_CHROMEOS_LACROS)
   show_avatar_toolbar_button = !chromeos::IsManagedGuestSession();
 #endif
-  avatar_->SetVisible(show_avatar_toolbar_button);
+  avatar_->SetVisible(false);
 
 #if BUILDFLAG(ENABLE_WEBUI_TAB_STRIP)
   auto new_tab_button = std::make_unique<ToolbarButton>(base::BindRepeating(
