@@ -27,10 +27,10 @@ bool IsSourceFromAnExtension(const std::u16string& source) {
 
 namespace extension_urls {
 
-const char kChromeWebstoreBaseURL[] = "https://chrome.google.com/webstore";
-const char kNewChromeWebstoreBaseURL[] = "https://chromewebstore.google.com/";
+const char kChromeWebstoreBaseURL[] = "trk:191:https://chrome.google.com/webstore";
+const char kNewChromeWebstoreBaseURL[] = "trk:192:https://chromewebstore.google.com/";
 const char kChromeWebstoreUpdateURL[] =
-    "https://clients2.google.com/service/update2/crx";
+    "trk:108:https://clients2.google.com/service/update2/crx";
 
 const char kAppMenuUtmSource[] = "ext_app_menu";
 const char kExtensionsMenuUtmSource[] = "ext_extensions_menu";

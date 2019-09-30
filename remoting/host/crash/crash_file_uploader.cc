@@ -43,7 +43,7 @@ constexpr char kMinidumpFileName[] = "dump";
 constexpr char kProductNameValue[] = "Chromoting_Linux";
 
 constexpr char kCrashReportUploadUrl[] =
-    "https://clients2.google.com/cr/report";
+    "trk:196:https://clients2.google.com/cr/report";
 
 // Used to reserve space for the non-file data in the post form to prevent
 // string re-allocations which building up the multi-part post form.
