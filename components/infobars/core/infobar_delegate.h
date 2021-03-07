@@ -191,6 +191,7 @@ class InfoBarDelegate {
     PARCEL_TRACKING_INFOBAR_DELEGATE = 117,
     TEST_THIRD_PARTY_COOKIE_PHASEOUT_DELEGATE = 118,
     ENABLE_LINK_CAPTURING_INFOBAR_DELEGATE = 119,
+    TRACKING_ALERT_INFOBAR_DELEGATE = 9001,
   };
 
   // Describes navigation events, used to decide whether infobars should be
