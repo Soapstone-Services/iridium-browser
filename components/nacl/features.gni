@@ -24,8 +24,7 @@ declare_args() {
   # Enables Native Client support.
   #
   # Intentionally and permanently disable nacl on Windows and Mac.
-  enable_nacl = checkout_nacl && _cpu_is_supported && target_os != "ios" &&
-                !is_android && !is_fuchsia && !is_castos && !is_win && !is_mac
+  enable_nacl = false
 }
 
 assert(!enable_nacl || checkout_nacl)
