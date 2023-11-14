@@ -390,7 +390,11 @@ void FFmpegDemuxerStream::EnqueuePacket(ScopedAVPacket packet) {
 
   scoped_refptr<DecoderBuffer> buffer;
 
+#if LIBAVUTIL_VERSION_MAJOR < 57
+    int side_data_size = 0;
+#else
     size_t side_data_size = 0;
+#endif
     uint8_t* side_data = av_packet_get_side_data(
         packet.get(), AV_PKT_DATA_MATROSKA_BLOCKADDITIONAL, &side_data_size);
 
@@ -453,7 +457,11 @@ void FFmpegDemuxerStream::EnqueuePacket(ScopedAVPacket packet) {
                                        packet->size - data_offset);
     }
 
+#if LIBAVUTIL_VERSION_MAJOR < 57
+    int skip_samples_size = 0;
+#else
     size_t skip_samples_size = 0;
+#endif
     const uint32_t* skip_samples_ptr =
         reinterpret_cast<const uint32_t*>(av_packet_get_side_data(
             packet.get(), AV_PKT_DATA_SKIP_SAMPLES, &skip_samples_size));
