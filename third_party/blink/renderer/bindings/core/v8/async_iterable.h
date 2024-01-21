@@ -220,7 +220,7 @@ class PairAsyncIterable {
  private:
   virtual IterationSource* CreateIterationSource(
       ScriptState* script_state,
-      IterationSource::Kind kind,
+      typename IterationSource::Kind kind,
       ExceptionState& exception_state) = 0;
 };
 
@@ -262,7 +262,7 @@ class ValueAsyncIterable {
  private:
   virtual IterationSource* CreateIterationSource(
       ScriptState* script_state,
-      IterationSource::Kind kind,
+      typename IterationSource::Kind kind,
       ExceptionState& exception_state) = 0;
 };
 
