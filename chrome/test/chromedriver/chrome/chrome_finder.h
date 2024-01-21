@@ -6,6 +6,7 @@
 #define CHROME_TEST_CHROMEDRIVER_CHROME_CHROME_FINDER_H_
 
 #include <vector>
+#include <string>
 
 #include "base/functional/callback_forward.h"
 
