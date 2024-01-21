@@ -304,7 +304,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
   // data
   auto data_expr = subCode;
   if (CaseEq(data_expr, RandR::Notify::CrtcChange)) {
-    data.cc.emplace();
+    data.cc.emplace(RandR::NotifyEvent::Cc());
     auto& timestamp = (*data.cc).timestamp;
     auto& window = (*data.cc).window;
     auto& crtc = (*data.cc).crtc;
@@ -348,7 +348,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
     Read(&height, &buf);
   }
   if (CaseEq(data_expr, RandR::Notify::OutputChange)) {
-    data.oc.emplace();
+    data.oc.emplace(RandR::NotifyEvent::Oc());
     auto& timestamp = (*data.oc).timestamp;
     auto& config_timestamp = (*data.oc).config_timestamp;
     auto& window = (*data.oc).window;
@@ -393,7 +393,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
     subpixel_order = static_cast<Render::SubPixel>(tmp6);
   }
   if (CaseEq(data_expr, RandR::Notify::OutputProperty)) {
-    data.op.emplace();
+    data.op.emplace(RandR::NotifyEvent::Op());
     auto& window = (*data.op).window;
     auto& output = (*data.op).output;
     auto& atom = (*data.op).atom;
@@ -421,7 +421,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
     Pad(&buf, 11);
   }
   if (CaseEq(data_expr, RandR::Notify::ProviderChange)) {
-    data.pc.emplace();
+    data.pc.emplace(RandR::NotifyEvent::Pc());
     auto& timestamp = (*data.pc).timestamp;
     auto& window = (*data.pc).window;
     auto& provider = (*data.pc).provider;
@@ -439,7 +439,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
     Pad(&buf, 16);
   }
   if (CaseEq(data_expr, RandR::Notify::ProviderProperty)) {
-    data.pp.emplace();
+    data.pp.emplace(RandR::NotifyEvent::Pp());
     auto& window = (*data.pp).window;
     auto& provider = (*data.pp).provider;
     auto& atom = (*data.pp).atom;
@@ -465,7 +465,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
     Pad(&buf, 11);
   }
   if (CaseEq(data_expr, RandR::Notify::ResourceChange)) {
-    data.rc.emplace();
+    data.rc.emplace(RandR::NotifyEvent::Rc());
     auto& timestamp = (*data.rc).timestamp;
     auto& window = (*data.rc).window;
 
@@ -479,7 +479,7 @@ void ReadEvent<RandR::NotifyEvent>(RandR::NotifyEvent* event_,
     Pad(&buf, 20);
   }
   if (CaseEq(data_expr, RandR::Notify::Lease)) {
-    data.lc.emplace();
+    data.lc.emplace(RandR::NotifyEvent::Lc());
     auto& timestamp = (*data.lc).timestamp;
     auto& window = (*data.lc).window;
     auto& lease = (*data.lc).lease;

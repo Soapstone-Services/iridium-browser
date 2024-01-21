@@ -5284,7 +5284,7 @@ std::unique_ptr<Xkb::GetKbdByNameReply> detail::ReadReply<
   if (CaseAnd(replies_expr, Xkb::GBNDetail::Types) ||
       CaseAnd(replies_expr, Xkb::GBNDetail::ClientSymbols) ||
       CaseAnd(replies_expr, Xkb::GBNDetail::ServerSymbols)) {
-    replies.types.emplace();
+    replies.types.emplace(Xkb::GetKbdByNameReply::Types());
     auto& getmap_type = (*replies.types).getmap_type;
     auto& typeDeviceID = (*replies.types).typeDeviceID;
     auto& getmap_sequence = (*replies.types).getmap_sequence;
@@ -5716,7 +5716,7 @@ std::unique_ptr<Xkb::GetKbdByNameReply> detail::ReadReply<
     }
   }
   if (CaseAnd(replies_expr, Xkb::GBNDetail::CompatMap)) {
-    replies.compat_map.emplace();
+    replies.compat_map.emplace(Xkb::GetKbdByNameReply::CompatMap());
     auto& compatmap_type = (*replies.compat_map).compatmap_type;
     auto& compatDeviceID = (*replies.compat_map).compatDeviceID;
     auto& compatmap_sequence = (*replies.compat_map).compatmap_sequence;
@@ -5840,7 +5840,7 @@ std::unique_ptr<Xkb::GetKbdByNameReply> detail::ReadReply<
     }
   }
   if (CaseAnd(replies_expr, Xkb::GBNDetail::IndicatorMaps)) {
-    replies.indicator_maps.emplace();
+    replies.indicator_maps.emplace(Xkb::GetKbdByNameReply::IndicatorMaps());
     auto& indicatormap_type = (*replies.indicator_maps).indicatormap_type;
     auto& indicatorDeviceID = (*replies.indicator_maps).indicatorDeviceID;
     auto& indicatormap_sequence =
@@ -5934,7 +5934,7 @@ std::unique_ptr<Xkb::GetKbdByNameReply> detail::ReadReply<
   }
   if (CaseAnd(replies_expr, Xkb::GBNDetail::KeyNames) ||
       CaseAnd(replies_expr, Xkb::GBNDetail::OtherNames)) {
-    replies.key_names.emplace();
+    replies.key_names.emplace(Xkb::GetKbdByNameReply::KeyNames());
     auto& keyname_type = (*replies.key_names).keyname_type;
     auto& keyDeviceID = (*replies.key_names).keyDeviceID;
     auto& keyname_sequence = (*replies.key_names).keyname_sequence;
@@ -6193,7 +6193,7 @@ std::unique_ptr<Xkb::GetKbdByNameReply> detail::ReadReply<
     }
   }
   if (CaseAnd(replies_expr, Xkb::GBNDetail::Geometry)) {
-    replies.geometry.emplace();
+    replies.geometry.emplace(Xkb::GetKbdByNameReply::Geometry());
     auto& geometry_type = (*replies.geometry).geometry_type;
     auto& geometryDeviceID = (*replies.geometry).geometryDeviceID;
     auto& geometry_sequence = (*replies.geometry).geometry_sequence;

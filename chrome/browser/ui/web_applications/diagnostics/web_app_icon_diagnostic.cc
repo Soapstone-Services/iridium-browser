@@ -37,7 +37,7 @@ void WebAppIconDiagnostic::Run(
   if (!downloaded_icon_sizes.empty())
     icon_size_ = *downloaded_icon_sizes.begin();
 
-  result_.emplace();
+  result_.emplace(WebAppIconDiagnostic::Result());
   result_->has_empty_downloaded_icon_sizes = downloaded_icon_sizes.empty();
   result_->has_generated_icon_flag = app_->is_generated_icon();
 
