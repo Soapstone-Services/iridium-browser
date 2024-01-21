@@ -3447,7 +3447,8 @@ void GridLayoutAlgorithm::PlaceGridItems(
   DCHECK(out_row_break_between);
 
   const auto& container_space = ConstraintSpace();
-  const auto& [grid_items, layout_data, tree_size] = sizing_tree.TreeRootData();
+  const auto& [grid_items, l_d, tree_size] = sizing_tree.TreeRootData();
+  const auto& layout_data = l_d;
 
   const auto* cached_layout_subtree = container_space.GetGridLayoutSubtree();
   const auto container_writing_direction =
@@ -3611,7 +3612,9 @@ void GridLayoutAlgorithm::PlaceGridItemsForFragmentation(
 
   // TODO(ikilpatrick): Update |SetHasSeenAllChildren| and early exit if true.
   const auto& constraint_space = ConstraintSpace();
-  const auto& [grid_items, layout_data, tree_size] = sizing_tree.TreeRootData();
+  const auto& [g_i, l_d, tree_size] = sizing_tree.TreeRootData();
+  const auto& grid_items = g_i;
+  const auto& layout_data = l_d;
 
   const auto* cached_layout_subtree = constraint_space.GetGridLayoutSubtree();
   const auto container_writing_direction =
