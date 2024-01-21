@@ -8,6 +8,8 @@
 #include <atomic>
 #include <memory>
 
+#include <atomic>
+
 #include "base/gtest_prod_util.h"
 #include "components/gwp_asan/client/export.h"
 #include "components/gwp_asan/common/lightweight_detector_state.h"

@@ -9,6 +9,8 @@
 #include <stdint.h>
 
 #include <type_traits>
+#include <stdint.h>
+#include <cstddef>
 
 namespace device {
 
