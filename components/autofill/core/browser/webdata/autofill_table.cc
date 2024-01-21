@@ -1763,10 +1763,10 @@ std::unique_ptr<AutofillProfile> AutofillTable::GetAutofillProfile(
     }
 
     base::span<const uint8_t> observations_data = s.ColumnBlob(3);
-    field_type_values.emplace_back(
+    field_type_values.emplace_back() = {
         type, s.ColumnString16(1), s.ColumnInt(2),
         std::vector<uint8_t>(observations_data.begin(),
-                             observations_data.end()));
+                             observations_data.end())};
 
     if (type == ADDRESS_HOME_COUNTRY) {
       country_code = base::UTF16ToUTF8(s.ColumnString16(1));

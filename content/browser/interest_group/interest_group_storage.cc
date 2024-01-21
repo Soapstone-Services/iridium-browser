@@ -3002,10 +3002,10 @@ DoGetKAnonymityData(sql::Database& db,
 
   std::vector<StorageInterestGroup::KAnonymityData> k_anon_data;
   while (interest_group_kanon_query.Step()) {
-    k_anon_data.emplace_back(
+    k_anon_data.emplace_back() = {
         /*key=*/interest_group_kanon_query.ColumnString(0),
         /*is_k_anonymous=*/interest_group_kanon_query.ColumnBool(1),
-        /*last_updated=*/interest_group_kanon_query.ColumnTime(2));
+        /*last_updated=*/interest_group_kanon_query.ColumnTime(2)};
   }
   if (!interest_group_kanon_query.Succeeded()) {
     return absl::nullopt;

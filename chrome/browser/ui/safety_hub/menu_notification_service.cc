@@ -148,8 +148,8 @@ SafetyHubMenuNotificationService::GetNotificationToShow() {
   // The information related to showing the notification needs to be persisted
   // as well.
   SaveNotificationsToPrefs();
-  return MenuNotificationEntry(notification_to_show->GetNotificationCommandId(),
-                               notification_to_show->GetNotificationString());
+  return MenuNotificationEntry{notification_to_show->GetNotificationCommandId(),
+                               notification_to_show->GetNotificationString()};
 }
 
 absl::optional<ResultMap>

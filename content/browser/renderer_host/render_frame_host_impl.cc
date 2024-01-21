@@ -8685,7 +8685,7 @@ void RenderFrameHostImpl::SendFencedFrameReportingBeacon(
   for (const blink::FencedFrame::ReportingDestination& destination :
        destinations) {
     SendFencedFrameReportingBeaconInternal(
-        DestinationEnumEvent(event_type, event_data), destination,
+        DestinationEnumEvent{event_type, event_data}, destination,
         /*from_renderer=*/true, attribution_reporting_runtime_features);
   }
 }
@@ -8720,7 +8720,7 @@ void RenderFrameHostImpl::SendFencedFrameReportingBeaconToCustomURL(
   }
 
   SendFencedFrameReportingBeaconInternal(
-      DestinationURLEvent(destination_url),
+      DestinationURLEvent{destination_url},
       blink::FencedFrame::ReportingDestination::kBuyer,
       /*from_renderer=*/true, attribution_reporting_runtime_features);
 }
@@ -8820,7 +8820,7 @@ void RenderFrameHostImpl::MaybeSendFencedFrameAutomaticReportingBeacon(
         data = info->data;
       }
       initiator_rfh->SendFencedFrameReportingBeaconInternal(
-          AutomaticBeaconEvent(event_type, data), destination,
+          AutomaticBeaconEvent{event_type, data}, destination,
           /*from_renderer=*/false, attribution_reporting_features,
           navigation_request.GetNavigationId());
     }
@@ -8832,7 +8832,7 @@ void RenderFrameHostImpl::MaybeSendFencedFrameAutomaticReportingBeacon(
     for (blink::FencedFrame::ReportingDestination destination :
          info->destinations) {
       initiator_rfh->SendFencedFrameReportingBeaconInternal(
-          AutomaticBeaconEvent(event_type, info->data), destination,
+          AutomaticBeaconEvent{event_type, info->data}, destination,
           /*from_renderer=*/false, info->attribution_reporting_runtime_features,
           navigation_request.GetNavigationId());
     }

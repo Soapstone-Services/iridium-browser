@@ -57,13 +57,13 @@ EmbeddedPermissionPromptPreviouslyGrantedView::GetRequestLinesConfiguration()
 std::vector<EmbeddedPermissionPromptPreviouslyGrantedView::ButtonConfiguration>
 EmbeddedPermissionPromptPreviouslyGrantedView::GetButtonsConfiguration() const {
   std::vector<ButtonConfiguration> buttons;
-  buttons.emplace_back(
+  buttons.emplace_back() = {
       l10n_util::GetStringUTF16(IDS_EMBEDDED_PROMPT_CONTINUE_ALLOWING),
-      ButtonType::kContinueAllowing, ui::ButtonStyle::kTonal);
+      ButtonType::kContinueAllowing, ui::ButtonStyle::kTonal};
 
-  buttons.emplace_back(
+  buttons.emplace_back() = {
       l10n_util::GetStringUTF16(IDS_EMBEDDED_PROMPT_STOP_ALLOWING),
-      ButtonType::kStopAllowing, ui::ButtonStyle::kTonal);
+      ButtonType::kStopAllowing, ui::ButtonStyle::kTonal};
   return buttons;
 }
 

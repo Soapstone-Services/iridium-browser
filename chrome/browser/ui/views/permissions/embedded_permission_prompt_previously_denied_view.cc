@@ -63,18 +63,18 @@ EmbeddedPermissionPromptPreviouslyDeniedView::GetRequestLinesConfiguration()
 std::vector<EmbeddedPermissionPromptPreviouslyDeniedView::ButtonConfiguration>
 EmbeddedPermissionPromptPreviouslyDeniedView::GetButtonsConfiguration() const {
   std::vector<ButtonConfiguration> buttons;
-  buttons.emplace_back(
+  buttons.emplace_back() = {
       l10n_util::GetStringUTF16(IDS_EMBEDDED_PROMPT_CONTINUE_NOT_ALLOWING),
-      ButtonType::kContinueNotAllowing, ui::ButtonStyle::kTonal);
+      ButtonType::kContinueNotAllowing, ui::ButtonStyle::kTonal};
 
   if (base::FeatureList::IsEnabled(permissions::features::kOneTimePermission)) {
-    buttons.emplace_back(
+    buttons.emplace_back() = {
         l10n_util::GetStringUTF16(IDS_PERMISSION_ALLOW_THIS_TIME),
-        ButtonType::kAllowThisTime, ui::ButtonStyle::kTonal);
+        ButtonType::kAllowThisTime, ui::ButtonStyle::kTonal};
   } else {
-    buttons.emplace_back(
+    buttons.emplace_back() = {
         l10n_util::GetStringUTF16(IDS_PERMISSION_ALLOW_THIS_TIME),
-        ButtonType::kAllow, ui::ButtonStyle::kTonal);
+        ButtonType::kAllow, ui::ButtonStyle::kTonal};
   }
   return buttons;
 }
