@@ -777,6 +777,7 @@ class MODULES_EXPORT ServiceWorkerGlobalScope final
   blink::BlinkStorageKey storage_key_;
 
   struct RaceNetworkRequestInfo {
+    RaceNetworkRequestInfo(int _fetch_event_id, String _token, mojo::PendingRemote<network::mojom::blink::URLLoaderFactory> _url_loader_factory) : fetch_event_id{_fetch_event_id}, token{_token}, url_loader_factory{std::move(_url_loader_factory)} {} 
     int fetch_event_id;
     String token;
     mojo::PendingRemote<network::mojom::blink::URLLoaderFactory>
