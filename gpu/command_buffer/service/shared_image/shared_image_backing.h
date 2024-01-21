@@ -338,7 +338,7 @@ class GPU_GLES2_EXPORT SharedImageBacking {
  private:
   class ScopedWriteUMA {
    public:
-    ScopedWriteUMA() = default;
+    ScopedWriteUMA() : content_consumed_(false) {}
 
     ScopedWriteUMA(const ScopedWriteUMA&) = delete;
     ScopedWriteUMA& operator=(const ScopedWriteUMA&) = delete;
@@ -352,7 +352,7 @@ class GPU_GLES2_EXPORT SharedImageBacking {
     void SetConsumed() { content_consumed_ = true; }
 
    private:
-    bool content_consumed_ = false;
+    bool content_consumed_;
   };
 
   const Mailbox mailbox_;

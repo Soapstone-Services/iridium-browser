@@ -77,13 +77,13 @@ class CORE_EXPORT HistoryItem final : public GarbageCollected<HistoryItem> {
     DISALLOW_NEW();
 
    public:
-    ViewState() = default;
+    ViewState() : page_scale_factor_(0) {}
     ViewState(const ViewState&) = default;
     ViewState& operator=(const ViewState&) = default;
 
     ScrollOffset visual_viewport_scroll_offset_;
     ScrollOffset scroll_offset_;
-    float page_scale_factor_ = 0;
+    float page_scale_factor_;
     ScrollAnchorData scroll_anchor_data_;
   };
 
